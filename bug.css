@@ -1,0 +1,26 @@
+The following CSS code snippet demonstrates an uncommon error involving unexpected behavior with the `:hover` pseudo-class when combined with transitions and nested elements.
+
+```css
+.container {
+  width: 100px;
+  height: 100px;
+  background-color: lightblue;
+  transition: background-color 0.5s ease;
+}
+
+.container:hover {
+  background-color: lightcoral;
+}
+
+.inner {
+  width: 50px;
+  height: 50px;
+  background-color: lightgreen;
+}
+
+.container:hover .inner {
+  background-color: yellow;
+}
+```
+
+The expected behavior is that when the mouse hovers over `.container`, both `.container` and `.inner` change their background color. However, in some browsers or scenarios, the transition on `.container` might interfere with the immediate color change of `.inner`, leading to a jarring visual effect or even a momentary delay before `.inner` updates its color.
