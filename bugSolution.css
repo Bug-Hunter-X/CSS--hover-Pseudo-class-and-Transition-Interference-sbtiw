@@ -1,0 +1,57 @@
+The issue can be addressed using several approaches. Here are two common solutions:
+
+**Solution 1:  Separating Transitions**
+
+The simplest solution is to avoid applying the transition to the parent element.  Instead, apply transitions only to the child element that needs the animation:
+
+```css
+.container {
+  width: 100px;
+  height: 100px;
+  background-color: lightblue;
+}
+
+.container:hover {
+  background-color: lightcoral;
+}
+
+.inner {
+  width: 50px;
+  height: 50px;
+  background-color: lightgreen;
+  transition: background-color 0.5s ease; 
+}
+
+.container:hover .inner {
+  background-color: yellow;
+}
+```
+
+**Solution 2: Using transition-property**
+
+Another solution involves specifically targeting the properties that will be transitioned to avoid interfering with immediate changes in other properties:
+
+```css
+.container {
+  width: 100px;
+  height: 100px;
+  background-color: lightblue;
+  transition: background-color 0.5s ease;
+}
+
+.container:hover {
+  background-color: lightcoral;
+}
+
+.inner {
+  width: 50px;
+  height: 50px;
+  background-color: lightgreen;
+}
+
+.container:hover .inner {
+  background-color: yellow;
+}
+```
+
+Choose the solution that best fits your project's structure and requirements.  Testing in different browsers is highly recommended.
